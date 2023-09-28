@@ -26,18 +26,12 @@
 :root {
   --syb5e-pc-color: #ffffff;
   --syb5e-pc-background: none;
-  --syb5e-pc-background-image: url(../images/background/bg-green.webp) repeat;
-  --syb5e-pc-sheet-border: 13px solid transparent;
   --syb5e-pc-font: 'Fondamento';
-  --syb5e-pc-border-image: url(../images/journal/sym-journal-border.webp);
   --syb5e-pc-item-link: #ffffff;
   --syb5e-pc-tag: #ffffff;
   --syb5e-npc-color: #ffffff;
   --syb5e-npc-background: none;
-  --syb5e-npc-background-image: url(../images/background/bg-red.webp) repeat;
   --syb5e-npc-font: 'Fondamento';
-  --syb5e-npc-border-image: url(../images/journal/sym-journal-header.webp);
-  --syb5e-npc-sheet-border: 13px solid transparent;
   --syb5e-npc-item-link: #ffffff;
   --syb5e-npc-tag: #ffffff;
 }
@@ -45,7 +39,16 @@
 /* End of Global Variables */
 /* ************************ */
 
-/* Character/NPC Sheet Styling  */
+/* DnD Styling Tweaks */
+/* ************************ */
+.dnd5e.sheet.actor .sheet-header .header-exp {
+  height: 74px !important;
+}
+
+/* End of Global Variables */
+/* ************************ */
+
+/* Character/NPC Sheet Styling */
 /* ************************ */
 .syb5e.sheet.actor .editor .tox-toolbar-overlord,
 .syb5e.sheet.actor .editor .tox-toolbar__primary {
@@ -75,16 +78,11 @@
 /* ************************ */
 
 .app.window-app.syb5e.actor.character.sheet {
-  /* background: chartreuse; */
-  border: var(--syb5e-pc-sheet-border);
-  border-image: var(--syb5e-pc-border-image);
   border-image-slice: 50%;
   border-image-width: 100%;
   min-width: 764px;
 }
 .syb5e.sheet.actor.character .window-content {
-  /* background: chartreuse; */
-  background: var(--syb5e-pc-background-image);
   color: var(--syb5e-pc-color);
   font-family: var(--syb5e-pc-font);
 }
@@ -282,22 +280,22 @@ a.inline-roll {
   color: var(--syb5e-npc-color);
 }
 
+.syb5e.sheet.actor.character .characteristics {
+  flex: 0 0 260px !important;
+}
+
 /* End of Character Sheet Styling  */
 /* ************************ */
 
 /* NPC Sheet Styling  */
 /* ************************ */
 .app.window-app.syb5e.actor.npc.sheet {
-  /* background: chartreuse; */
-  border: var(--syb5e-npc-sheet-border);
-  border-image: var(--syb5e-npc-border-image);
   border-image-slice: 50%;
   border-image-width: 100%;
   min-width: 625px;
 }
 
 .syb5e.sheet.actor.npc .window-content {
-  background: var(--syb5e-npc-background-image);
   color: var(--syb5e-npc-color);
   font-family: var(--syb5e-npc-font);
 }
