@@ -31,11 +31,9 @@
                 <li>
                     <span>{{lookup config.actorSizes system.traits.size}}</span>
                 </li>
-                <!--
-                <li>
+                <!--<li>
                     <input type="text" name="system.details.alignment" value="{{system.details.alignment}}" placeholder="{{ localize 'DND5E.Alignment' }}"/>
-                </li>
-                -->
+                </li>-->
                 <li class="creature-type">
                     <span data-tooltip="{{labels.type}}">{{labels.type}}</span>
                     <a class="config-button" data-action="type" data-tooltip="DND5E.CreatureTypeConfig">
@@ -146,16 +144,17 @@
             <ul class="skills-list">
             {{#each config.skills as |obj s|}}
             {{#with (lookup ../skills s) as |skill|}}
-                <li class="skill flexrow {{#if skill.value}}proficient{{/if}}" data-skill="{{s}}">
+                <li class="skill proficiency-row flexrow {{#if skill.value}}proficient{{/if}}" data-property="skills"
+                    data-key="{{s}}">
                     <input type="hidden" name="system.skills.{{s}}.value"
-                           value="{{skill.baseValue}}" data-dtype="Number">
+                            value="{{skill.baseValue}}" data-dtype="Number">
                     <input type="hidden" name="system.skills.{{s}}.ability" value="{{skill.ability}}">
                     <a class="proficiency-toggle skill-proficiency" data-tooltip="{{skill.hover}}">{{{skill.icon}}}</a>
                     <div class="skill-name-controls">
-                      <h4 class="skill-name rollable">{{skill.label}}</h4>
-                      <a class="config-button" data-action="skill" data-tooltip="DND5E.SkillConfigure">
-                          <i class="fas fa-cog"></i>
-                      </a>
+                        <h4 class="skill-name rollable">{{skill.label}}</h4>
+                        <a class="config-button" data-action="skill" data-tooltip="DND5E.SkillConfigure">
+                            <i class="fas fa-cog"></i>
+                        </a>
                     </div>
                     <span class="skill-ability">{{skill.abbreviation}}</span>
                     <span class="skill-mod" data-tooltip="{{localize 'DND5E.SkillModifierHint' skill=skill.label}}">
@@ -170,10 +169,10 @@
             </ul>
 
             <section class="center-pane flexcol">
-                {{!-- Corruption --}}
+                {{!-- Corruption - Inserts Corruption Info --}}
                 {{> "modules/symbaroum5ecore/templates/actors/parts/actor-corruption.html"}}
 
-                {{!-- Manner/Shadow Text Box --}}
+                {{!-- Manner/Shadow Text Box - Insert Behavior Info --}}
                 {{> "modules/symbaroum5ecore/templates/actors/parts/actor-shadow.html"}}
 
                 {{!-- Legendary Actions --}}
